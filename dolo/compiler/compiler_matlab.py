@@ -113,6 +113,8 @@ class CompilerMatlab(object):
         ss_text = "calibration = struct;\n"
         for k,v in steady_state.iteritems():
             ss_text += 'calibration.{0} = {1};\n'.format( k, str(v).replace('\n',' ')  )
+        import numpy
+        numpy.set_printoptions(threshold=1E6)
         ss_text += 'calibration.parameters = {0};\n'.format(str(parameters_values).replace('\n',' '))
         ss_text += sigma_calib
 
